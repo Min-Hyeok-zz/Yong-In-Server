@@ -1,0 +1,169 @@
+@charset "utf-8";
+
+html {
+	overflow-y: scroll;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 15px;
+	font-family: 'NanumGothic', 'Nanum Gothic', 'dotum', 'sans-serif';
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 1em;
+	font-family: 'Malgun Gothic', 'dotum', 'sans-serif';
+}
+
+form {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+img {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: middle;
+	font-size: 1em;
+}
+
+article, aside, details, figcaption, figure, header, hgroup, menu, section, footer, nav {
+	display: block;
+}
+
+footer {
+	width: 980px;
+	margin: 0 auto;
+	display: flex;
+	font-size: 12px;
+	font-weight: bold;
+	color: #666;
+	padding-bottom: 10px;
+
+	> img {
+		width: 36px;
+		height: 30px;
+		margin-right: 20px;
+	}
+
+}
+
+ul, dl, dt, dd {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+legend {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -9999em;
+	overflow: hidden;
+}
+
+label {
+	vertical-align: middle;
+	font-size: 1em;
+}
+
+input {
+	vertical-align: middle;
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+	font-family: 'Malgun Gothic', 'dotum', 'sans-serif';
+	font-size: 1em;
+}
+
+button {
+	vertical-align: middle;
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+	font-family: 'Malgun Gothic', 'dotum', 'sans-serif';
+	font-size: 1em;
+	cursor: pointer;
+}
+
+select {
+	vertical-align: middle;
+	font-size: 1em;
+	font-family: 'Malgun Gothic', 'dotum', 'sans-serif';
+	font-size: 1em;
+	margin: 0;
+	border: 1px solid #aaa;
+	height: 20px;
+
+	&:focus {
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 0 5px #9ed4ff;
+		border: 1px solid #558ab7 !important;
+	}
+
+}
+
+input[type="submit"] {
+	cursor: pointer;
+}
+
+textarea {
+	font-family: 'Malgun Gothic', 'dotum', 'sans-serif';
+	font-size: 1em;
+	outline: none;
+
+	&:focus {
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 0 5px #9ed4ff;
+		border: 1px solid #558ab7 !important;
+	}
+
+}
+
+p {
+	margin: 0;
+	padding: 0;
+	//Instead of the line below you could use @include word-break($value)
+	word-break: break-all;
+}
+
+hr {
+	display: none;
+}
+
+pre {
+	overflow-x: scroll;
+	font-size: 1.1em;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+input[type=text], input[type=password] {
+	outline: none;
+
+	&:focus {
+		box-shadow: 0 0 5px #9ed4ff;
+		border: 1px solid #558ab7 !important;
+	}
+
+}
