@@ -322,11 +322,6 @@ if ($board['bo_use_category']) {
                 <?php endif ?>
             <?php endif ?>
             <button class="vol-btn vol-btn2" onclick="location.href='<?php echo $list_href ?>&amp;sca=<?php echo $sca?>'">목록으로</button>
-            <div class="vol-social">
-                <img src="<?php echo G5_IMG_URL ?>/twitter.jpg" alt="img">
-                <img src="<?php echo G5_IMG_URL ?>/facebook.jpg" alt="img">
-            </div>
-
 
             <!-- 게시물 상단 버튼 시작 { -->
             <div id="bo_v_top">

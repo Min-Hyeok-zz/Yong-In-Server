@@ -10,19 +10,19 @@ $color2:#fff;
 }
 
 @mixin pc() {
-	@media (min-width:1200px) {
+	@media (min-width:1024px) {
 		@content;
 	}
 }
 
 @mixin tablet() {
-	@media (max-width:1199px) {
+	@media (max-width:1023px) {
 		@content;
 	}
 }
 
 @mixin only_tablet() {
-	@media (min-width:768px) and (max-width:1199px) {
+	@media (min-width:768px) and (max-width:1023px) {
 		@content;
 	}
 }
