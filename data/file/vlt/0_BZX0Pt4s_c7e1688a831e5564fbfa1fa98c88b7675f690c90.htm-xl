@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta charset="UTF-8">
+	<title>Responsive CSS</title>
+	<style>
+		*{
+			box-sizing: border-box;
+			animation: mobile 1s;
+		}
+			body{
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 10px;
+			}
+		@keyframes mobile{
+			0%{opacity: 0;transform: translateY(-30%);}
+			100%{opacity: 1;transform: translateY(0);}
+		}
+		header{
+			background: #e5e5e5;
+			padding: 15px;
+			text-align: center;
+		}
+			footer{
+				clear: both;
+				background: #e5e5e5;
+				padding: 10px;
+				text-align: center;
+				margin-top: 10px;
+			}
+		.left,.main,.right{
+			margin-top: 10px;
+		}
+			.left,.right{
+				width: 20%;
+			}
+				.main{
+					width: 60%;
+					padding: 0 10px 10px 10px;
+				}
+		.menu{
+			background: #e5e5e5;
+			padding: 5px;
+			margin-bottom: 5px;
+			transition: .5s;
+		}
+			.menu:hover{
+				transform: scale(1.1);
+				background: #000;
+				color: #fff;
+				cursor: progress;
+			}
+			.right{
+				background: #e5e5e5;
+				padding: 5px;
+				margin-bottom: 5px;
+			}
+		
+		.wrap{
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+		}
+		@media (max-width: 600px) {
+			.left,.main,.right{
+				width: 100%;
+			}
+			header{
+				background: #000;
+				color: #fff;
+			}
+			header h1{
+				font-size: 20px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>반응형 웹 - CSS</h1>
+	</header>
+	<div class="wrap">
+		<div class="left">
+			<div class="menu">Menu 1</div>
+			<div class="menu">Menu 2</div>
+			<div class="menu">Menu 3</div>
+			<div class="menu">Menu 4</div>
+		</div>
+		<div class="main">
+			<h2>미디어쿼리와 CSS 활용 반응형 웹</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, animi? Rerum repellendus quam magni adipisci atque quisquam voluptatem provident nobis, alias quibusdam, suscipit, placeat. Fugit optio commodi ratione, eveniet. Nobis.</p>
+		</div>
+		<div class="right">
+			<h2>About</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id beatae, deleniti libero eveniet saepe!</p>
+		</div>
+	</div>
+	<footer>
+		&copy; 2017 홍길동 All Rights Reserved.
+	</footer>
+</body>
+</html>
