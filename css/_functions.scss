@@ -8,3 +8,98 @@ $color2:#fff;
 		clear: both;
 	}
 }
+
+@mixin pc() {
+	@media (min-width:1200px) {
+		@content;
+	}
+}
+
+@mixin tablet() {
+	@media (max-width:1199px) {
+		@content;
+	}
+}
+
+@mixin only_tablet() {
+	@media (min-width:768px) and (max-width:1199px) {
+		@content;
+	}
+}
+
+@mixin mobile() {
+	@media (max-width:767px) {
+		@content;
+	}
+}
+
+@function vw($vw,$size:1200px){
+	@return ($vw / $size) * 100vw;
+}
+
+@function per($per,$size:1200px){
+	@return ($per / $size) * 100%;
+}
+
+@mixin cycle($size, $bg, $color, $border:none) {
+	display: inline-block;
+	width: $size;
+	height: $size;
+	border-radius: 100%;
+	background: $bg;
+	color: $color;
+	border: $border;
+	line-height: $size;
+	text-align: center
+}
+
+@mixin toggle_menu($w:18px, $h:2px, $margin:5px, $top:-4px, $bg:#fff) {
+	position: relative;
+
+	>span {
+		display: inline-block;
+		width: $w;
+		height: $h;
+		background: $bg;
+		border-radius: 2px;
+		position: relative;
+		top: 0;
+		transition: .3s;
+		top: $top
+	}
+
+	>span:after, >span:before {
+		display: inline-block;
+		width: $w;
+		height: $h;
+		background: $bg;
+		border-radius: 2px;
+		content: '';
+		position: absolute;
+		left: 0;
+		transition: .3s
+	}
+
+	>span:after {
+		top: $margin
+	}
+
+	>span:before {
+		top: -$margin
+	}
+
+	&.active>span {
+		background: none
+	}
+
+	&.active>span:after {
+		top: 0px;
+		transform: rotate3d(0, 0, 1, -45deg)
+	}
+
+	&.active>span:before {
+		top: 0px;
+		transform: rotate3d(0, 0, 1, 45deg)
+	}
+
+}

@@ -1,25 +1,52 @@
 @charset "utf-8";
 @import "functions";
 @import "tag_setting";
+@include pc() {
+	.mobile{
+		display:none;
+	}
+}
+@include mobile() {
+	.pc{
+		display:none;
+	}
+}
 #header {
 	color: #fff;
 	background:fade-out($color1,.1);
 	position: relative;
 	z-index: 20;
 	>div{
-		display: flex;
-		align-items: center;
 		position: relative;
-		height: 100px;
-		max-width: 1000px;
-		margin:0 auto;
 		padding: 0 2%;
-		>.logo{
-			>a{
-				>img{
-					max-width: 100%;
-				}
+		@extend %auto-center;
+	}
+	.logo{
+		>a{
+			>img{
+				max-width: 100%;
 			}
+		}
+	}
+	@include pc () {
+		>div {
+			height: 100px;
+			max-width: 1000px;
+			display: flex;
+			align-items: center;
+		}
+	}
+	@include tablet () {
+		>div{
+			display:block;
+			margin:0;
+			padding:0;
+			max-width:inherit;
+		}
+		.logo{
+			padding-top:30px;
+			text-align:center;
+			padding:40px 0 10px;
 		}
 	}
 }
@@ -27,13 +54,10 @@
 .block{display: block;}
 .util {
 	@include clr();
-	position:absolute;
-	right:40px;
-	top:15px;
-	z-index:10;
 	font-size:11px;
+	position:absolute;
+	z-index:10;
 	a{
-		float:left;
 		color:fade-out(#fff,0.3);
 		+a:before{
 			content:"";
@@ -45,9 +69,25 @@
 			background:fade-out(#fff,.5);
 		}
 	}
+	@include pc() {
+		right:40px;
+		top:15px;
+		a {
+			float:left;
+		}
+	}
+	@include tablet() {
+		top:0;
+		left:0;
+		right:0;
+		text-align:center;
+		line-height: 30px;
+		background: fade-out(#000,0.75);
+	}
 }
 
 .gnb {
+	&.sticky{position:fixed;top:0;z-index:100;left:0;right:0;}
 	> ul {
 		position:absolute;
 		right:0;
@@ -82,70 +122,168 @@
 					}
 				}
 			}
-			&:hover {
-				ul{display:block;}
+		}
+	}
+	@include pc () {
+		>ul>li:hover>ul{display:block;}
+	}
+	@include tablet() {
+		.toggle_menu{
+			display:none;
+		}
+		> ul {
+			position:static;
+			a{text-align: center;}
+			> li {
+				width:25%;
+				&.active > a {
+					background: $color1;
+				}
+				> ul {
+					display: none;
+				}
+				> a{
+					font-size: 15px;
+					line-height:40px;
+					padding:0;
+				}
+			}
+		}
+	}
+	@include mobile() {
+		.toggle_menu{
+			@include toggle_menu();
+			display:block;
+			text-align:center;
+			line-height: 40px;
+			background: $color1;
+			border-bottom: 1px solid fade-out(#fff, 0.5);
+		}
+		> ul{
+			display:none;
+			flex-flow:wrap;
+			> li {
+				width:100%;
+				> ul {
+					position: static;
+					> li {
+						> a{
+							background: darken($color1, 5%);
+						}
+					}
+				}
+			}
+			a {
+				background: $color1;
 			}
 		}
 	}
 }
-.visual {
-	width: 980px;
-	height: 580px;
-	background: url('../img/main.jpg') center / cover;
-	margin: 0 auto;
+#footer {
+	@extend %auto-center;
+	font-size:15px;
+	padding:0 10px;
+	display: flex;
+	font-size: 12px;
+	font-weight: bold;
+	color: #666;
+	padding-bottom: 10px;
+	> img {
+		width: 36px;
+		height: 30px;
+		margin-right: 20px;
+	}
+}
 
+.visual {
+	padding: 100px 0;
+	background: url('../img/main.jpg') center / cover;
 	> div {
-		width: 100%;
+		@extend %auto-center;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 	}
-
+	@include tablet () {
+		padding: 25px 0;
+		> div {
+			display: block;
+			text-align: center;
+		}
+	}
 }
-
 
 #visual {
 	color: #fff;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	max-width: 100%;
-	> div > h2 {
-		font-weight: normal;
-		line-height: 40px;
-		margin-left: 50px;
-		font-size: 30px;
-
-		> span {
-			&:nth-child(2) {
-				font-size: 36px;
+	> div  {
+		> h2 {
+			font-weight: normal;
+			line-height: 40px / 30px * 100%;
+			font-size: 30px;
+			> span {
+				&:last-child {
+					font-family: 'Arial';
+					font-size: 24px;
+					font-weight: bold;
+				}
+				&:nth-child(2) {
+					font-size: 36px;
+				}
 			}
-
-			&:last-child {
-				font-family: 'Arial';
-				font-size: 24px;
-				font-weight: bold;
-			}
-
 		}
-
+		@include tablet () {
+			> h2 {
+				$std:768px;
+				font-size: vw(30px, $std);
+				> span {
+					&:last-child {
+						font-family: 'Arial';
+						font-size: vw(24px, $std);
+						font-weight: bold;
+					}
+					&:nth-child(2) {
+						font-size: vw(36px, $std);
+					}
+				}
+			}
+		}
 	}
-
 }
-
 
 .visual-side {
 	width: 263px;
 	height: 273px;
 
 	> div {
-		width: 100%;
 		height: calc(100% / 3);
 		display: flex;
 		align-items: center;
 		cursor: pointer;
 	}
 
+	@include tablet () {
+		width: auto;
+		padding:0 20px;
+		margin-top: 20px;
+		height: auto;
+		display: flex;
+		> div {
+			width: 33.33%;
+			$height:vw(100px, 768px);
+			height:$height;
+			line-height:$height;
+		}		
+	}
+	@include mobile () {
+		width: auto;
+		display: block;
+		> div {
+			width: auto;
+			$height:vw(100px, 480px);
+			height:$height;
+			line-height:$height;
+		}
+	}
 }
 
 .side-box {
@@ -158,52 +296,55 @@
 	}
 
 	~ p {
-		display: block;
 		width: 100%;
 		height: 100%;
 		padding-left: 10px;
 		line-height: calc(273px / 3);
 		text-align: left;
 	}
-
+	@include tablet () {
+		> img { padding: 0; }
+		~ p {
+			padding: 0;
+			text-align: center;
+			line-height: vw(100px, 768px);
+		}
+	}
+	@include mobile () {
+		~ p {
+			line-height: vw(100px, 480px);
+		}
+	}
 }
 
 .side-box1 {
 	background: #e66722;
-
 	~ p {
 		background: fade-out(#e86a24,0.2);
 	}
-
 }
 
 .side-box2 {
 	background: #e57922;
-
 	~ p {
 		background: fade-out(#e67a23,0.2);
 	}
-
 }
 
 .side-box3 {
 	background: #ed8e1f;
-
 	~ p {
 		background: fade-out(#f09020,0.2);
 	}
-
 }
 
 
 #info {
+	@extend %auto-center;
 	padding-top: 20px;
-	max-width: 980px;
-	width: 100%;
 	height: 182px;
 	display: flex;
 	justify-content: space-between;
-	margin: 0 auto;
 }
 .info {
 	border: 1px solid #bad7da;
@@ -220,6 +361,8 @@
 			width: 130px;
 			height: 100%;
 			border-top: 2px solid #a2d0dc;
+			margin-top: -1px;
+			margin-bottom: -1px;
 			background: #f4f9fb;
 
 			> p {
@@ -261,6 +404,30 @@
 
 }
 
+@include tablet () {
+	$std:768px;
+	#info {
+		height: vw(182px,$std);
+	}
+	.info {
+		width: 50%;
+		height: 100%;
+		margin:0 10px
+	}
+}
+
+@include mobile () {
+	#info {
+		display: block;
+		height: auto;
+	}
+	.info {
+		width: auto;
+		margin: 10px;
+		height: vw(182px,480px);
+	}
+}
+
 #sub_menu_form{
 	width: 400px;
 	margin: 0 auto;
@@ -296,10 +463,9 @@
 }
 
 #donate {
-	max-width: 980px;
+	@extend %auto-center;
 	height: 78px;
 	display: flex;
-	margin: 0 auto;
 	justify-content: space-between;
 	margin-top: 8px;
 	margin-bottom: 50px;
@@ -312,51 +478,23 @@
 		justify-content: center;
 		align-items: center;
 	}
-
-}
-
-@media (max-width: 800px) {
-	/* info 반응형 */
-	#info{
-		display: inline-block;
-		>.info{
-			width: 100%;
-			margin-bottom: 10px;
-		}
-	}
-	/* donate 반응형 */
-	#donate{
-		~ footer{
-			margin-top: 200px;
-		}
+	@include mobile () {
+		height: auto;
 		display: block;
-		>div{
-			width: 100%;
+		> div {
+			margin: 5px 10px;
+			height: 78px;
+			width: auto;
+			border: 1px solid #dedede;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 	}
-
-}
-
-.login-visual {
-	width: 100%;
-	height: 350px;
-	background: url('../img/main2.jpg') center / cover;
-	background-position: top -130px center;
-	background-repeat: no-repeat;
-	margin-top: -124px;
-
-	> div {
-		width: 980px;
-		margin: 0 auto;
-		text-align: right;
-		margin-top: 250px;
-	}
-
 }
 
 #content {
-	width: 980px;
-	margin: 0 auto;
+	@extend %auto-center;
 	position: relative;
 	display: flex;
 	justify-content: space-between;
@@ -364,9 +502,9 @@
 	>div:nth-child(2) {
 		max-width: 760px;
 		width: 100%;
+		margin-top: 20px;
 		margin-left: 40px;
 		position: relative;
-		margin-top: 20px;
 		>.sub_title{
 			font-size: 24px;
 			margin-bottom: 20px;
@@ -375,9 +513,37 @@
 			float: right;
 			font-size: 12px;
 			margin-top: -40px;
+			margin-right: 20px;
 		}
 	}
-
+	@include tablet () {
+		display: block;
+		>div:nth-child(2) {
+			max-width: 100%;
+			margin: 0 auto;
+			position: relative;
+			box-sizing: border-box;
+			padding: 15px;
+			>.sub_title{
+				font-size: 24px;
+				margin-bottom: 20px;
+			}
+		}
+	}
+	@include mobile () {
+		>div:nth-child(2) {
+			margin: 0 auto;
+			>.sub_title{
+				margin-top: 30px;
+			}
+			>.sub_navi{
+				float:none;
+				display:block;
+				margin-top: -70px;
+				margin-bottom: 60px;
+			}
+		}
+	}
 }
 
 
@@ -496,13 +662,52 @@
 			}
 
 		}
+	}
 
+	@include tablet () {
+		$std:768px;
+		max-width: 100%;
+		width: auto;
+		height: auto;
+		> ul {
+			line-height: 40px;
+			> li {
+				font-size: 13px;
+				>a{
+					width: auto;
+					padding-left: 18px;
+				}
+				>a.active::before {
+					content: " >";
+					margin-left:0;
+					right: 5%;
+				}
+				> ul {
+					width: auto;
+				}
+				&:first-child{
+					margin-top: 0;
+				}
+			}
+		}		
+	}
+	@include mobile () {
+		$std:768px;
+		> ul {
+			line-height: 30px;
+			> li {
+				font-size: 12px;
+				> ul {
+					font-size: 12px;
+					font-weight: normal;
+				}
+			}
+		}		
 	}
 
 }
 
 .left-title {
-	width: 100%;
 	height: 120px;
 	background: url('../img/left-nav-bg.jpg') center / cover;
 	text-align: center;
@@ -510,6 +715,12 @@
 	font-size: 24px;
 	color: #fff;
 	font-weight: bold;
+	@include tablet () {
+		padding: 20px 0;
+		height: auto;
+		line-height: inherit;
+		font-size: 20px;
+	}
 }
 
 #login {
@@ -590,24 +801,22 @@
 }
 
 .login-visual2 {
-	width: 100%;
-	height: 350px;
-	background: url('../img/main3.jpg') center / cover;
-	margin-top: -100px;
-
+	background: url('../img/main3.jpg') no-repeat center / cover;
 	> div {
-		max-width: 980px;
-		width: 100%;
+		@extend %auto-center;
+		padding: 150px 0 50px;
 		text-align: right;
-		margin-top: 250px;
 	}
-
+	@include tablet () {
+		$std:768px;
+		> div {
+			padding: vw(150px,$std) vw(50px, $std) vw(50px,$std);
+		}		
+	}
 }
 
 #join {
-	width: 760px;
 	margin-bottom: 95px;
-	margin: 0 auto;
 	> p {
 		font-family: 'Dotum';
 		margin-top: 30px;
@@ -1197,88 +1406,50 @@ input[name='number'] {
 #calander {
 	font-family: 'Dotum';
 	margin-bottom: 100px;
-
 	> h2 {
 		font-family: 'NanumGothic';
 	}
 
 	> p:nth-child(3) {
-		text-align: right;
 		margin-top: -20px;
 		font-size: 12px;
+	}
+	>.sub-text{
+		padding-top: vw(20px,768px);
+	}
+	>.calander_btn{
+		display: flex;
+		justify-content: center;
+		margin-top: 20px;
+		a{margin:0 5px;}
+	}
+	>.calander-info{
+	    text-align: center;
+	    margin: 10px 0;
+	    color: #4f90a2;
+	    font-size: 14px;
 	}
 
 }
 
 #calander-table {
-	width: 100%;
-	border-top: 2px solid #a2d0dc;
-	font-size: 12px;
-	color: #5090a0;
-	text-align: center;
-	border-spacing: 0 0;
-	border-collapse: collapse;
-
-	> caption {
-		text-align: center;
-		margin-top: 30px;
-		margin-bottom: 15px;
-		color: #4f90a2;
-		font-size: 14px;
-	}
-
-	> thead {
-		background: #f4f9fb;
-
-		> tr > th {
-			padding: 5px;
-			font-weight: bold;
-		}
-
-	}
-
-	> colgroup > col {
-		width: calc(100% / 6);
-	}
-
-	> tbody > tr {
-		&:first-child {
-			border-top: 1px solid #a2d0dc;
-		}
-
-		> td {
-			max-width: 106px;
-			padding: 15px 5px;
-			border-bottom: 1px solid #d4e4e9;
-			//Instead of the line below you could use @include word-break($value)
-			word-break: break-all;
-
-			&:first-child {
-				color: #505050;
-			}
-
-			&.active {
-				background: #f4f8f9;
-
-				> p {
-					background: #568f9f;
-					color: #fff;
-					display: inline-block;
+	min-width: 700px;
+	table {
+		width: 100%;
+		max-width: inherit;
+		margin-top: 20px;
+		border:none !important;
+		tbody{
+			>tr:first-child{
+				>td{
+					border-top: 2px solid #a2d0dc !important;
 				}
-
-				> div > .date {
-				}
-
 			}
-
-			&:not(:last-child) {
-				border-right: 1px solid #d4e4e9;
+			>tr{
+				width: calc(100% / 6) !important;
 			}
-
 		}
-
 	}
-
 }
 
 #club {
@@ -2300,116 +2471,7 @@ td > .club-bg {
 /* 반응형 시작 */
 
 @media (max-width: 1000px) {
-	/* 헤더 반응형 */
-	#header{
-		>div{
-			height: 150px;
-			>.logo{
-				margin: 0 auto;
-				margin-top: -30px;
-			}
-			>.util{
-				right: calc(50% - 119.5px);
-			}
-			.gnb{
-				>ul{
-					right: calc(50% - 160px);
-					>li{
-						>a{
-							width: 100%;
-							padding: 0 10px;
-						}
-					}
-				}
-			}
-		}
-	}
-	/* 메인페이지 반응형 */
-	.visual > div{
-		display: inline-block;
-		text-align: center;
-		>.visual-side{
-			margin: 0 auto;
-			margin-top: 20px;
-		}
-	}
-	#visual > div{
-		>h2{
-			font-size: 24px;
-			line-height: normal;
-			margin-left: 0;
-			padding: 0 2%;
-			>span:nth-child(2){
-				font-size: 26px;
-				padding-top: 10px;
-			}
-			>span:nth-child(4){
-				font-size: 24px;
-			}
-
-		}
-	}
 	/* content 반응형 */
-	#content{
-		display: inline-block;
-		width: 100%;
-		>div:nth-child(2){
-			margin: 0 auto;
-		}
-	}
-	/* 반응형 */
-	.login-visual2{
-		margin-top: -150px;
-	}
-	/* 왼쪽 내비게이션 반응형 */
-	#left-nav{
-		max-width: 760px;
-		width: 100%;
-		margin: 0 auto;
-		margin-bottom: 20px;
-		>.left-title{
-			height: 80px;
-			line-height: 40px;
-			position: relative;
-			>.ham{
-				width: 35px;
-				position: absolute;
-				z-index: 1000;
-				left: calc(50% - 17.5px);
-				bottom: 0;
-				cursor: pointer;
-				padding-bottom: 10px;
-				>div{
-					width: 35px;
-					height: 5px;
-					background: #fff;
-					margin: 0 auto;
-					margin-top: 5px;
-					border-radius: 5px;
-					transition: .3s;
-				}
-			}
-			.active{
-				>div:nth-child(1){
-					transform: rotate(45deg) translateY(8px) translateX(6px);
-				}
-				>div:nth-child(2){
-					opacity: 0;
-				}
-				>div:nth-child(3){
-					transform: rotate(-45deg) translateY(-8px) translateX(6px);
-				}
-			}
-		}
-		>ul{
-			display: none;
-			>li{
-				>a{
-					width: 100%;
-				}
-			}
-		}
-	}
 	/* 회원가입 반응형 */
 	#join-table > tbody > tr > td > input[type='text'],
 	#join-table > tbody > tr > td > input[type='password'],
@@ -2468,10 +2530,6 @@ td > .club-bg {
 		>div{
 			padding: 30px 3.5% 10px 3.5%;
 		}
-	}
-	/* footer 반응형 */
-	footer{
-		font-size: 10px;
 	}
 	/* 게시판 리스트 페이지 반응형 */
 	.list-none{

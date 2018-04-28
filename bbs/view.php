@@ -137,8 +137,11 @@ if ($board['bo_use_signature'] && $view['mb_id']) {
 
     $signature = conv_content($signature, 1);
 }
-
-include_once($board_skin_path.'/view.skin.php');
+if ($bo_table == "calander") {
+    include_once(G5_PATH.'/page/sub1_5.php');
+} else{
+    include_once($board_skin_path.'/view.skin.php');
+}
 
 @include_once($board_skin_path.'/view.tail.skin.php');
 ?>

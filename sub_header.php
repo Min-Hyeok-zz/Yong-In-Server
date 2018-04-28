@@ -12,7 +12,7 @@
 <div id="content">
 	<?php
 		if (isset($midx)) {
-			$title = "센터  소개";
+			$title = "센터 소개";
 		} else{
 			if (isset($bo_table)) {
 				switch ($bo_table) {
@@ -20,6 +20,7 @@
 					case 'vlt': $title = "수업 게시판"; break;
 					case 'qna': $title = "Q&A"; break;
 					case 'gallery': $title = "센터 소개"; break;
+					case 'calander': $title = "센터 소개"; break;
 				}
 			} else{
 				$title = $g5['title'];
@@ -69,7 +70,7 @@
 				<?php if ($is_category): ?>
 				<?php echo $category_option; ?>
 				<?php endif ?>
-				<?php if ($sidx || $bo_table == "gallery"): ?>
+				<?php if ($sidx || $bo_table == "gallery" || $bo_table == "calander"): ?>
 				<li><a href="<?php echo G5_URL."/1/1" ?>">사회봉사센터는</a></li>
 				<li>
 					<a href="<?php echo G5_URL."/1/2?page={$intro['page']}&idx={$intro['number']}" ?>">프로그램 소개</a>
@@ -79,7 +80,7 @@
 						<li><a href="<?php echo G5_URL."/1/2?page=3&idx=1"?>">커뮤니티 사업</a></li>
 					</ul>
 				</li>
-				<li><a href="<?php echo G5_URL."/1/5" ?>">프로그램 시간표</a></li>
+				<li><a href="<?php echo G5_BBS_URL."/board.php?bo_table=calander&wr_id=1"?>">프로그램 시간표</a></li>
 				<li><a href="<?php echo G5_BBS_URL."/board.php?bo_table=gallery" ?>">프로그램 진행사진</a></li>
 				<?php endif ?>
 				<?php if (!isset($sidx) && !isset($_GET['sca']) && $bo_table == ""): ?>
