@@ -87,6 +87,7 @@
 }
 
 .gnb {
+	background: fade-out($color1,0.1);
 	&.sticky{position:fixed;top:0;z-index:100;left:0;right:0;}
 	> ul {
 		position:absolute;
@@ -198,11 +199,14 @@
 .visual {
 	padding: 100px 0;
 	background: url('../img/main.jpg') center / cover;
+	max-width: 1000px;
+	margin: 0 auto;
 	> div {
 		@extend %auto-center;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		padding-left: 20px;
 	}
 	@include tablet () {
 		padding: 25px 0;
@@ -1232,6 +1236,11 @@ input[name='number'] {
 		border: 1px solid #e5e5e5;
 		padding: 2px;
 		position: relative;
+	}
+	@include mobile () {
+		>input{
+			width: 25vw;
+		}
 	}
 
 }

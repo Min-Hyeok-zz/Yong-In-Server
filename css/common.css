@@ -66,6 +66,7 @@ input[type=text]:focus, input[type=password]:focus { box-shadow: 0 0 5px #9ed4ff
   .util a { float: left; } }
 @media (max-width: 1199px) { .util { top: 0; left: 0; right: 0; text-align: center; line-height: 30px; background: rgba(0, 0, 0, 0.25); } }
 
+.gnb { background: rgba(24, 102, 122, 0.9); }
 .gnb.sticky { position: fixed; top: 0; z-index: 100; left: 0; right: 0; }
 .gnb > ul { position: absolute; right: 0; bottom: 0; display: flex; }
 .gnb > ul a { display: block; transition: .3s; }
@@ -99,8 +100,8 @@ input[type=text]:focus, input[type=password]:focus { box-shadow: 0 0 5px #9ed4ff
 #footer { font-size: 15px; padding: 0 10px; display: flex; font-size: 12px; font-weight: bold; color: #666; padding-bottom: 10px; }
 #footer > img { width: 36px; height: 30px; margin-right: 20px; }
 
-.visual { padding: 100px 0; background: url("../img/main.jpg") center/cover; }
-.visual > div { display: flex; justify-content: space-between; align-items: center; }
+.visual { padding: 100px 0; background: url("../img/main.jpg") center/cover; max-width: 1000px; margin: 0 auto; }
+.visual > div { display: flex; justify-content: space-between; align-items: center; padding-left: 20px; }
 @media (max-width: 1199px) { .visual { padding: 25px 0; }
   .visual > div { display: block; text-align: center; } }
 
@@ -316,6 +317,7 @@ input[name='number'] { width: 85px; height: 20px; }
 .photo-search { float: right; margin-top: 25px; font-size: 12px; }
 .photo-search > button { width: 40px; height: 20px; border: 1px solid #c9c9c9; background: #fff; cursor: pointer; }
 .photo-search > input { border: 1px solid #e5e5e5; padding: 2px; position: relative; }
+@media (max-width: 767px) { .photo-search > input { width: 25vw; } }
 
 .photo-content { width: 100%; display: flex; flex-wrap: wrap; font-size: 12px; margin-bottom: 40px; color: #505050; }
 .photo-content > div { width: calc(100% / 4 - 20px); margin: 15px 10px 0 10px; }

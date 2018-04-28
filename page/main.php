@@ -70,7 +70,7 @@
 	<!-- 후원 -->
 
 	<div id="donate">
-		<div><img src="<?php echo G5_IMG_URL?>/donate1.jpg" alt="img"></div>
-		<div><img src="<?php echo G5_IMG_URL?>/donate2.jpg" alt="img"></div>
-		<div><img src="<?php echo G5_IMG_URL?>/donate3.jpg" alt="img"></div>
+		<div><a href="http://www.yongin.ac.kr/index"><img src="<?php echo G5_IMG_URL?>/donate1.jpg" alt="img"></a></div>
+		<div><a href="https://www.1365.go.kr/vols/main.do"><img src="<?php echo G5_IMG_URL?>/donate2.jpg" alt="img"></a></div>
+		<div><a href="https://www.vms.or.kr/main.do"><img src="<?php echo G5_IMG_URL?>/donate3.jpg" alt="img"></a></div>
 	</div>
