@@ -15,23 +15,24 @@
 			<?php endif ?>
 			switch(sidx){
 				case 1: $("#left-nav > ul > li:nth-child(1) > a").addClass("active"); break;
-				case 2:
-					$("#left-nav > ul > li:nth-child(2) > a").addClass("active");
-					$("#left-nav > ul > li:nth-child(2) > ul").removeClass("intro-list-hide");
-				break;
 				case 5: $("#left-nav > ul > li:nth-child(3) > a").addClass("active"); break;
 			}
 		<?php endif ?>
 		<?php if ($bo_table == "gallery"): ?>
 			$("#left-nav > ul > li:nth-child(4) > a").addClass("active");
 		<?php endif ?>
+		<?php if ($bo_table == "introduce"): ?>
+			var sca = '<?php echo $_GET['sca']; ?>';
+			switch (sca){
+				case "교육지원 사업": $("#left-nav > ul > li > ul > li:nth-child(1) > a").addClass("active"); break;
+				case "건강증진 사업": $("#left-nav > ul > li > ul > li:nth-child(2) > a").addClass("active"); break;
+				case "커뮤니티 사업": $("#left-nav > ul > li > ul > li:nth-child(3) > a").addClass("active"); break;
+			}
+			$("#left-nav > ul > li:nth-child(2) > a").addClass("active");
+		<?php endif ?>
 		<?php if ($bo_table == "calander"): ?>
 			$("#left-nav > ul > li:nth-child(3) > a").addClass("active");
 		<?php endif ?>
-		$(".ham").click(function(){
-			$(this).toggleClass("active"); 
-			$("#left-nav > ul").slideToggle(0);
-		})
 		$("#smart_editor2").removeAttr("style");
 	})
 </script>

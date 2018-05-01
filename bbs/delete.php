@@ -133,6 +133,11 @@ if ($count_write > 0 || $count_comment > 0)
 @include_once($board_skin_path.'/delete.tail.skin.php');
 
 delete_cache_latest($bo_table);
+if ($bo_table == "introduce") {
+    $back = $db->query("SELECT * FROM g5_write_introduce where ca_name='{$_GET['sca']}' order by wr_id asc")->fetch();
+    goto_url(G5_HTTP_BBS_URL.'/board.php?bo_table='.$bo_table.'&amp;wr_id='.$back['wr_id'].'&amp;sca='.$_GET['sca'].'');
+} else {
+    goto_url(G5_HTTP_BBS_URL.'/board.php?bo_table='.$bo_table.'&amp;page='.$page.$qstr);
+}
 
-goto_url(G5_HTTP_BBS_URL.'/board.php?bo_table='.$bo_table.'&amp;page='.$page.$qstr);
 ?>

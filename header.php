@@ -16,6 +16,7 @@
 		</nav>
 		<?php
 			$pro = $db->query("SELECT * FROM g5_sub_menu where page='1' order by number asc")->fetch();
+			$fir = $db->query("SELECT * FROM g5_write_introduce where ca_name='교육지원 사업' order by wr_id asc")->fetch();
 		?>
 		<nav class="gnb">
 			<!-- 로고 -->
@@ -25,7 +26,7 @@
 				<li class="menu"><a href="<?php echo G5_URL?>/1/1">센터 소개</a>
 					<ul>
 						<li><a href="<?php echo G5_URL?>/1/1">사회봉사센터는</a></li>
-						<li><a href="<?php echo G5_URL?>/1/2?page=<?php echo $pro['page'] ?>&idx=<?php echo $pro['number'] ?>">프로그램 소개</a></li>
+						<li><a href="<?php echo G5_BBS_URL ?>/board.php?bo_table=introduce&amp;wr_id=<?php echo $fir['wr_id'] ?>&amp;sca=<?php echo $fir['ca_name']; ?>">프로그램 소개</a></li>
 						<li><a href="<?php echo G5_BBS_URL."/board.php?bo_table=calander&wr_id=1"?>">프로그램 시간표</a></li>
 						<li><a href="<?php echo G5_BBS_URL?>/board.php?bo_table=gallery">프로그램 진행사진</a></li>
 					</ul>

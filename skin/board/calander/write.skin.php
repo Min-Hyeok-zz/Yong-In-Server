@@ -100,7 +100,7 @@ $required = "";
     <?php } ?>
 
     <div class="study-btn">
-        <a href="<?php echo G5_BBS_URL?>/board.php?bo_table=<?php echo $bo_table ?>&sca=<?php echo $_GET['sca'] ?>" class="btn">목록</a>
+        <a href="<?php echo G5_BBS_URL?>/board.php?bo_table=calander&wr_id=1" class="btn">목록</a>
         <button type="submit" id="btn_submit" accesskey="s" class="btn">작성완료</button>
     </div>
     </form>

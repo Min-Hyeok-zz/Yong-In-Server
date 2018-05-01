@@ -47,7 +47,7 @@
 
 		<?php else: ?>
 
-			<div>
+			<div class="intro-content">
 				<img src="<?php echo G5_IMG_URL ?>/<?php echo $text['img']; ?>" alt="img">
 				<div>
 					<p class="edu-sub">진행일정</p>

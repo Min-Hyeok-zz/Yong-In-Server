@@ -106,7 +106,7 @@ input[type=text]:focus, input[type=password]:focus { box-shadow: 0 0 5px #9ed4ff
   .visual > div { display: block; text-align: center; } }
 
 #visual { color: #fff; }
-#visual > div > h2 { font-weight: normal; line-height: 133.3333333333%; font-size: 30px; }
+#visual > div > h2 { font-weight: normal; line-height: 133.33333%; font-size: 30px; }
 #visual > div > h2 > span:last-child { font-family: 'Arial'; font-size: 24px; font-weight: bold; }
 #visual > div > h2 > span:nth-child(2) { font-size: 36px; }
 @media (max-width: 1023px) { #visual > div > h2 { font-size: 3.90625vw; }
@@ -116,16 +116,16 @@ input[type=text]:focus, input[type=password]:focus { box-shadow: 0 0 5px #9ed4ff
 .visual-side { width: 263px; height: 273px; }
 .visual-side > div { height: calc(100% / 3); display: flex; align-items: center; cursor: pointer; }
 @media (max-width: 1023px) { .visual-side { width: auto; padding: 0 20px; margin-top: 20px; height: auto; display: flex; }
-  .visual-side > div { width: 33.33%; height: 13.0208333333vw; line-height: 13.0208333333vw; } }
+  .visual-side > div { width: 33.33%; height: 13.02083vw; line-height: 13.02083vw; } }
 @media (max-width: 767px) { .visual-side { width: auto; display: block; }
-  .visual-side > div { width: auto; height: 20.8333333333vw; line-height: 20.8333333333vw; } }
+  .visual-side > div { width: auto; height: 20.83333vw; line-height: 20.83333vw; } }
 
 .side-box { min-width: 98px; height: 100%; text-align: center; }
 .side-box > img { padding-top: 20px; }
 .side-box ~ p { width: 100%; height: 100%; padding-left: 10px; line-height: calc(273px / 3); text-align: left; }
 @media (max-width: 1023px) { .side-box > img { padding: 0; }
-  .side-box ~ p { padding: 0; text-align: center; line-height: 13.0208333333vw; } }
-@media (max-width: 767px) { .side-box ~ p { line-height: 20.8333333333vw; } }
+  .side-box ~ p { padding: 0; text-align: center; line-height: 13.02083vw; } }
+@media (max-width: 767px) { .side-box ~ p { line-height: 20.83333vw; } }
 
 .side-box1 { background: #e66722; }
 .side-box1 ~ p { background: rgba(232, 106, 36, 0.8); }
@@ -146,10 +146,10 @@ input[type=text]:focus, input[type=password]:focus { box-shadow: 0 0 5px #9ed4ff
 .info > div:last-child { padding-top: 25px; padding-left: 20px; font-size: 12px; width: 100%; height: 100%; text-align: left; line-height: 20px; font-family: 'Dotum'; }
 .info > span > a { position: absolute; right: -1px; top: -1px; padding: 10px 15px; border: 1px solid #bad7da; font-size: 24px; color: #bad7da; }
 
-@media (max-width: 1023px) { #info { height: 23.6979166667vw; }
+@media (max-width: 1023px) { #info { height: 23.69792vw; }
   .info { width: 50%; height: 100%; margin: 0 10px; } }
 @media (max-width: 767px) { #info { display: block; height: auto; }
-  .info { width: auto; margin: 10px; height: 37.9166666667vw; } }
+  .info { width: auto; margin: 10px; height: 37.91667vw; } }
 #sub_menu_form { width: 400px; margin: 0 auto; }
 #sub_menu_form > p { font-size: 24px; margin: 10px; }
 #sub_menu_form > .sub_form-control { width: 100%; height: 35px; padding: 4px; outline: none; box-sizing: border-box; }
@@ -226,7 +226,7 @@ input[type=text]:focus, input[type=password]:focus { box-shadow: 0 0 5px #9ed4ff
 
 .login-visual2 { background: url("../img/main3.jpg") no-repeat center/cover; }
 .login-visual2 > div { padding: 150px 0 50px; text-align: right; }
-@media (max-width: 1023px) { .login-visual2 > div { padding: 19.53125vw 6.5104166667vw 6.5104166667vw; } }
+@media (max-width: 1023px) { .login-visual2 > div { padding: 19.53125vw 6.51042vw 6.51042vw; } }
 
 #join { margin-bottom: 95px; }
 #join > p { font-family: 'Dotum'; margin-top: 30px; font-size: 12px; }
@@ -284,9 +284,9 @@ input[name='number'] { width: 85px; height: 20px; }
 #education { font-family: 'Dotum'; margin-bottom: 240px; }
 #education > h2 { font-family: 'NanumGothic'; }
 #education > p:nth-child(3) { text-align: right; margin-top: -20px; font-size: 12px; }
-#education > div:last-child { margin-top: 10px; width: 760px; display: flex; justify-content: space-around; }
-#education > div:last-child > div { font-size: 12px; color: #555; line-height: 18px; margin-left: 30px; }
-#education > div:last-child > img { border: 1px solid #dae5e9; padding: 5px; margin-left: 5px; box-shadow: 3px 3px 0 #ebebeb; min-width: 325px; height: 211px; }
+#education > .intro-content { margin-top: 10px; width: 760px; display: flex; justify-content: space-around; }
+#education > .intro-content > div { font-size: 12px; color: #555; line-height: 18px; margin-left: 30px; }
+#education > .intro-content > img { border: 1px solid #dae5e9; padding: 5px; margin-left: 5px; box-shadow: 3px 3px 0 #ebebeb; min-width: 325px; height: 211px; }
 
 .edu-btn { margin-top: 40px; border-bottom: 1px solid #dedede; margin-bottom: 45px; }
 .edu-btn > .active { background: #afb1b4; color: #fff; }
@@ -357,7 +357,7 @@ input[name='number'] { width: 85px; height: 20px; }
 #calander { font-family: 'Dotum'; margin-bottom: 100px; }
 #calander > h2 { font-family: 'NanumGothic'; }
 #calander > p:nth-child(3) { margin-top: -20px; font-size: 12px; }
-#calander > .sub-text { padding-top: 2.6041666667vw; }
+#calander > .sub-text { padding-top: 2.60417vw; }
 #calander > .calander_btn { display: flex; justify-content: center; margin-top: 20px; }
 #calander > .calander_btn a { margin: 0 5px; }
 #calander > .calander-info { text-align: center; margin: 10px 0; color: #4f90a2; font-size: 14px; }
